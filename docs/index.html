@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <title>FIT2102 A1 2023</title>
+    <script type="module" crossorigin src="/assets/index-4827259b.js"></script>
+    <link rel="stylesheet" href="/assets/index-1c1c10ec.css">
+  </head>
+  <body>
+    <h1>Tetris</h1>
+    <div id="gameContainer" class="flex row">
+      <!-- Left Column for Instructions -->
+      <div id="instructions" class="flex col">
+        <h2>Game Instructions:</h2>
+        <div class="instructions-content">
+          <p>Tetris with <b>Nintendo rotation system</b>, aka right handed rotation system. Link: <b>https://strategywiki.org/wiki/Tetris/Rotation_systems</b></p> 
+          <p>Enter <b>P</b> when Power Up is available to trigger your special block-deleting buff. For <b>5</b> seconds you can <b>delete</b> any block you like by clicking on it
+            ,but you don't get any points. This buff has a <b>10-second cooldown</b>.
+          </p> 
+          <p><b>Garbage rows</b> regularly spawn at the bottom. Beware, garbage rows <b>spawn faster as you level up!</b> </p>
+          <p><b>Adapted from Nintendo Scoring system</b>: <br> 
+            Tetromino &nbsp;&nbsp;&nbsp;&nbsp;= 40<br>
+            Single Line &nbsp; = 40*level<br>
+            Double Line &nbsp;= 100*level<br>
+            Triple line &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 300*level <br>
+            Tetris &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1200*level
+          </p>
+        </div>
+      </div>
+      <!-- middle column for grid -->
+      <main id="main" class="flex row">
+        <svg id="svgCanvas">
+          <!-- game over text box -->
+          <g id="gameOver" visibility="hidden">
+            <rect x="26" y="120" fill="white" height="48" width="149"></rect>
+            <text x="36" y="150">Game Over</text>
+          </g>
+          <!-- restart text box -->
+          <g id="restart" visibility="hidden">
+            <rect x="26" y="160" fill="white" height="48" width="149"></rect>
+            <text x="56" y="190">Restart?</text>
+          </g> 
+        </svg>
+        <div id="sideBar" class="flex col">
+          <svg id="svgPreview"></svg>
+          <div id="indicator">
+            <svg id="powerUpIndicator">
+              <g id="powerUpStatus" visibility="visible">
+                <text class = "dynamic-text faded" x="10" y="20">Power Up Ready</text>
+              </g> 
+            </svg>
+          </div>
+          <div id="indicator2">
+            <svg id="powerUpDuration">
+              <g id="pDuration" visibility="visible">
+                <text id = "durationID" class = "dynamic-text faded" x="10" y="20" >Power Up Inactive</text>
+              </g> 
+            </svg>
+          </div>
+          <div id="info" class="flex col">
+            <div class="text">
+              <span class="left">Lines: </span>
+              <span class="right" id="linesText">...</span>
+            </div>
+            <div class="text">
+              <span class="left">Level: </span>
+              <span class="right" id="levelText">...</span>
+            </div>
+            <div class="text">
+              <span class="left">Score: </span>
+              <span class="right" id="scoreText">...</span>
+            </div>
+            <div class="text">
+              <span class="left">Highscore: </span>
+              <span class="right" id="highScoreText">...</span>
+            </div>
+            <div class="garbageText">
+              <span class="left">Garbage incoming: </span>
+              <span class="right" id="garbageRowText">...</span>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Right Column for Controls -->
+      <div id="controlsContainer" class="flex col">
+        <h2>Controls:</h2>
+        <div id="controls">
+          <table>
+            <tr>
+              <td >Shift Left</td>
+              <td>
+                <div id="ShiftLeft">A</div>
+              </td>
+            </tr>
+            <tr>
+              <td>Shift Right</td>
+              <td>
+                <div id="ShiftRight">D</div>
+              </td>
+            </tr>
+            <tr>
+              <td>Shift Down</td>
+              <td>
+                <div id="ShiftDown">S</div>
+              </td>
+            </tr>
+            <tr>
+              <td>Rotate</td>
+              <td>
+                <div id="Rotate">W</div>
+              </td>
+            </tr>
+            <tr>
+              <td>PowerUp</td>
+              <td>
+                <div id="PowerUp">P</div>
+              </td>
+            </tr>
+            <tr>
+              <td>Delete Block</td>
+              <td>
+                <div id="DeleteBlock">Mouse Click</div>
+              </td>
+            </tr>
+          </table>  
+        </div>
+    </div>
+
+    
+  </body>
+</html>
